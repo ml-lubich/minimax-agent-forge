@@ -39,6 +39,7 @@ flowchart LR
 - [How it works](#how-it-works)
 - [Project layout](#project-layout)
 - [License](#license)
+- [🗺️ Repository map](#️-repository-map)
 
 ## Agent pipeline (algorithm)
 
@@ -152,3 +153,25 @@ pyproject.toml          # uv-managed deps
 ## License
 
 MIT
+
+
+## 🗺️ Repository map
+
+Top-level layout of `minimax-agent-forge` rendered as a Mermaid mindmap (auto-generated from the on-disk tree).
+
+```mermaid
+mindmap
+  root((minimax-agent-forge))
+    agents/
+      __init__.py
+      analyst.py
+      base.py
+      orchestrator.py
+      researcher.py
+      writer.py
+    files
+      README.md
+      main.py
+      pyproject.toml
+      requirements.txt
+```
