@@ -40,6 +40,7 @@ flowchart LR
 - [Project layout](#project-layout)
 - [License](#license)
 - [🗺️ Repository map](#️-repository-map)
+- [📊 Code composition](#-code-composition)
 
 ## Agent pipeline (algorithm)
 
@@ -174,4 +175,17 @@ mindmap
       main.py
       pyproject.toml
       requirements.txt
+```
+
+
+## 📊 Code composition
+
+File-type breakdown of source under this repo (skips `.git`, `node_modules`, build caches, lockfiles).
+
+```mermaid
+pie showData title File-type composition of minimax-agent-forge (10 files)
+    "Python" : 7
+    "Text" : 1
+    "TOML" : 1
+    "Markdown" : 1
 ```
