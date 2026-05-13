@@ -31,12 +31,57 @@ flowchart LR
 ## Table of contents
 
 - [Architecture](#architecture)
+- [Agent pipeline (algorithm)](#agent-pipeline-algorithm)
+- [Multi-agent sequence](#multi-agent-sequence)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [How it works](#how-it-works)
 - [Project layout](#project-layout)
 - [License](#license)
+
+## Agent pipeline (algorithm)
+
+```mermaid
+flowchart LR
+    A([user query])
+    B["Orchestrator<br/>build shared context"]
+    C["Researcher prompt<br/>+ MiniMax call"]
+    D["facts + sources"]
+    E["Analyst prompt<br/>+ MiniMax call"]
+    F["insights"]
+    G["Writer prompt<br/>+ MiniMax call"]
+    H["report.md"]
+    Z([end])
+    A --> B --> C --> D --> E --> F --> G --> H --> Z
+```
+
+## Multi-agent sequence
+
+```mermaid
+sequenceDiagram
+    participant U as user
+    participant O as Orchestrator
+    participant R as Researcher
+    participant A as Analyst
+    participant W as Writer
+    participant MM as MiniMax
+
+    U->>O: query
+    O->>R: research(query)
+    R->>MM: chat(research prompt)
+    MM-->>R: facts
+    R-->>O: facts
+    O->>A: analyze(facts)
+    A->>MM: chat(analyst prompt)
+    MM-->>A: insights
+    A-->>O: insights
+    O->>W: write(insights)
+    W->>MM: chat(writer prompt)
+    MM-->>W: report
+    W-->>O: report.md
+    O-->>U: report.md
+```
 
 ## Architecture
 
